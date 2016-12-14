@@ -10,10 +10,10 @@ Directory Services: Used to develop an intranet/internet applications by allowin
 Source: wiki
 
 Layers in LDAP:
-Domain Component : DC
-Organizational Units : OU
-Groups
-Users (Groups and Users together form Entries)
+1)Domain Component : DC
+2)Organizational Units : OU
+3)Groups
+4)Users (Groups and Users together form Entries)
 
 
 
