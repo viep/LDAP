@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Enter details of the new User
+  form(action='/createUser')
+      | User:
+      br
+      input(type='text', name='userName')
+      br
+      |   Password:
+      br
+      input(type='text', name='password')
+      br
+      |   Home Directory:
+      br
+      input(type='text', name='directory')
+      br
+      input(type='submit', value='create user')
+
+

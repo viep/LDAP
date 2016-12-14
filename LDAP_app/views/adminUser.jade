@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome Admin user
+    form(action='newUserData')
+      | Click to add a new user:
+      br
+      input(type='submit', value='Submit')
+    form(action='editExistingUser')
+      | Click to edit existing user data:
+      br
+      input(type='submit', value='Submit')
+
+

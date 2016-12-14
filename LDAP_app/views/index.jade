@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to LDAP APP
+  form(action='/adminUser')
+      | Admin User:
+      br
+      input(type='text', name='adminUser')
+      br
+      |   Password:
+      br
+      input(type='text', name='adminPassword')
+      br
+      br
+      input(type='submit', value='login as admin')
+    form(action='/regularUser')
+      | User:
+      br
+      input(type='text', name='user')
+      br
+      |   Password:
+      br
+      input(type='text', name='userPassword')
+      br
+      br
+      input(type='submit', value='login as user')
+
