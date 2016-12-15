@@ -1,15 +1,32 @@
-extends layout
+html
+  head
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
+  body
+    div
+      div
+        nav.navbar.navbar-inverse(role='navigation', style='padding-left:130px;')
+          ul.nav.navbar-nav
+            li.active
+              a(href='/') Home
+              span.sr-only (current)
+            li
+              a(href='/about')
+                | About
+            li
+              a(href='/contact') Contact us
+      br
+      .jumbotron
+        p Welcome Admin
+          form(action='newUserData')
+            | Click to add a new user:
+            br
+            input(type='submit', value='Submit')
+          form(action='editExistingUser')
+            | Click to edit existing user data:
+            br
+            input(type='submit', value='Submit')
 
-block content
-  h1= title
-  p Welcome Admin user
-    form(action='newUserData')
-      | Click to add a new user:
-      br
-      input(type='submit', value='Submit')
-    form(action='editExistingUser')
-      | Click to edit existing user data:
-      br
-      input(type='submit', value='Submit')
+
 
 

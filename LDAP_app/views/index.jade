@@ -1,28 +1,54 @@
-extends layout
+html
+  head
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
+  body
+    div
+      div
+        nav.navbar.navbar-inverse(role='navigation', style='padding-left:130px;')
+          ul.nav.navbar-nav
+            li.active
+              a(href='/')
+                | Home
+                span.sr-only (current)
+            li
+              a(href='/about') About
+            li
+              a(href='/contact') Contact us
+      br
 
-block content
-  h1= title
-  p Welcome to LDAP APP
-  form(action='/adminUser')
-      | Admin User:
       br
-      input(type='text', name='adminUser')
+      form.form-horizontala(role='form', style='width: 50%;', action='/adminUser')
+        .form-group
+          label.col-sm-2.control-label(for='username') User Name
+          .col-sm-10
+            input#username.form-control(type='text', name='username', placeholder='admin user name', value='')
+        .form-group
+          label.col-sm-2.control-label(for='password') Password
+          .col-sm-10
+            input#password.form-control(type='password', name='password', placeholder='admin password', value='')
+        .form-group
+          .col-sm-10.col-sm-offset-2
+            input#submit.btn.btn-primary(name='submit', type='submit', value='Login')
+        .form-group
+          .col-sm-10.col-sm-offset-2
       br
-      |   Password:
+
       br
-      input(type='text', name='adminPassword')
-      br
-      br
-      input(type='submit', value='login as admin')
-    form(action='/regularUser')
-      | User:
-      br
-      input(type='text', name='user')
-      br
-      |   Password:
-      br
-      input(type='text', name='userPassword')
-      br
-      br
-      input(type='submit', value='login as user')
+      form.form-horizontala(role='form', style='width: 50%;', action='/regularUser')
+        .form-group
+          label.col-sm-2.control-label(for='username') User Name
+          .col-sm-10
+            input#username.form-control(type='text', name='username', placeholder='user name', value='')
+        .form-group
+          label.col-sm-2.control-label(for='password') Password
+          .col-sm-10
+            input#password.form-control(type='password', name='password', placeholder='password', value='')
+        .form-group
+          .col-sm-10.col-sm-offset-2
+            input#submit.btn.btn-primary(name='submit', type='submit', value='Login')
+        .form-group
+          .col-sm-10.col-sm-offset-2
+ 
+
 

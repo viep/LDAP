@@ -6,6 +6,13 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'LDAP APP' });
 });
 
+router.get('/about',(req,res)=>{
+	res.render('about',{title:'About'});
+})
+
+router.get('/contact',(req,res)=>{
+	res.render('contact',{title:'Contact Us'});
+})
 router.get('/adminUser',(req,res)=>{
 console.log(req.body);
 res.render('adminUser',{title:'Admin Home Page'});
@@ -25,4 +32,6 @@ router.get('/createUser',(req,res)=>{
 	res.render('createUser',{title: 'Successfully created'});
 	console.log(req.body);
 })
+
+
 module.exports = router;
