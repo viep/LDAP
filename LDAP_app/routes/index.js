@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var PythonShell = require('python-shell');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -30,6 +32,11 @@ console.log(req.body);
 
 router.get('/createUser',(req,res)=>{
 	res.render('createUser',{title: 'Successfully created'});
+	PythonShell.run('createLdif.py',function(err){
+		if(err)
+			throw err;
+		console.log('executed the script!');
+	})
 	console.log(req.body);
 })
 
