@@ -36,8 +36,10 @@ router.get('/createUser',(req,res)=>{
 	var email = req.query.email;
 	var password = req.query.password;
 	var directory = req.query.homedirectory;
+	var uid = req.query.uid;
+	var gid = req.query.gid;
 	var txt = "dn: uid="+username+",ou=People,dc=summer,dc=sv.cmu.local \nuid:"+username+"\ncn:"+username+"\nsn:"+username+"\nmail:"+email+"\nobjectClass: person\nobjectClass: organizationalPerson\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: top\nobjectClass: shadowAccount"
-	txt = txt + "userPassword: "+password+"shadowLastChange: 17128\nshadowMin: 0\nshadowMax: 99999\nshadowWarning: 7\nloginShell: /bin/bash\nuidNumber: 500\ngidNumber: 500\nhomeDirectory:"+directory;
+	txt = txt + "userPassword: "+password+"shadowLastChange: 17128\nshadowMin: 0\nshadowMax: 99999\nshadowWarning: 7\nloginShell: /bin/bash\nuidNumber: "+uid+"\ngidNumber: "+gid+"\nhomeDirectory:"+directory;
 	
 	fs.writeFile('data.ldif',txt,function(err){
 		if(err)

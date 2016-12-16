@@ -2,16 +2,17 @@ dn: uid=jj,ou=People,dc=summer,dc=sv.cmu.local
 uid:jj
 cn:jj
 sn:jj
-mail:j@jj.comobjectClass: person
+mail:js@js.com
+objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: top
-objectClass: shadowAccountuserPassword: pshadowLastChange: 17128
+objectClass: shadowAccountuserPassword: jjshadowLastChange: 17128
 shadowMin: 0
 shadowMax: 99999
 shadowWarning: 7
 loginShell: /bin/bash
-uidNumber: 500
-gidNumber: 500
+uidNumber: jj
+gidNumber: jj
 homeDirectory:jj
