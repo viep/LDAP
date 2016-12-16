@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var PythonShell = require('python-shell');
+var fs = require('fs');
 
 
 /* GET home page. */
@@ -31,13 +31,21 @@ console.log(req.body);
 })
 
 router.get('/createUser',(req,res)=>{
-	res.render('createUser',{title: 'Successfully created'});
-	PythonShell.run('createLdif.py',function(err){
+	var username = req.query.username;
+	var name = req.query.name;
+	var email = req.query.email;
+	var password = req.query.password;
+	var directory = req.query.homedirectory;
+	var txt = "dn: uid="+username+",ou=People,dc=summer,dc=sv.cmu.local \nuid:"+username+"\ncn:"+username+"\nsn:"+username+"\nmail:"+email+"\nobjectClass: person\nobjectClass: organizationalPerson\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: top\nobjectClass: shadowAccount"
+	txt = txt + "userPassword: "+password+"shadowLastChange: 17128\nshadowMin: 0\nshadowMax: 99999\nshadowWarning: 7\nloginShell: /bin/bash\nuidNumber: 500\ngidNumber: 500\nhomeDirectory:"+directory;
+	
+	fs.writeFile('data.ldif',txt,function(err){
 		if(err)
 			throw err;
-		console.log('executed the script!');
+		console.log("wrote to file")
 	})
-	console.log(req.body);
+	res.render('createUser',{title: 'Successfully created'});
+	console.log(req.query.name);
 })
 
 

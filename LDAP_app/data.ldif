@@ -1,27 +1,17 @@
-dn:: bWFpbD1sZGFwdXNlcjFAc3VtbWVyLnN2LmNtdS5sb2NhbA==
-cn:: bGRhcHVzZXIx
-gidNumber:: NTAw
-homeDirectory:: L2hvbWUvbGRhcHVzZXIx
-loginShell:: L2Jpbi9iYXNo
-mail:: bGRhcHVzZXIxQHN1bW1lci5zdi5jbXUubG9jYWw=
-objectClass:: cGVyc29u
-objectClass:: b3JnYW5pemF0aW9uYWxQZXJzb24=
-objectClass:: aW5ldE9yZ1BlcnNvbg==
-objectClass:: cG9zaXhBY2NvdW50
-objectClass:: dG9w
-objectClass:: c2hhZG93QWNjb3VudA==
-shadowLastChange:: MTcxMjg=
-shadowMax:: OTk5OTk=
-shadowMin:: MA==
-shadowWarning:: Nw==
-sn:: bGRhcHVzZXIx
-uid:: bGRhcHVzZXIx
-uidNumber:: NTAw
-userPassword:: bg==
-userPassword:: bw==
-userPassword:: dA==
-userPassword:: cw==
-userPassword:: dQ==
-userPassword:: cg==
-userPassword:: ZQ==
-
+dn: uid=jj,ou=People,dc=summer,dc=sv.cmu.local 
+uid:jj
+cn:jj
+sn:jj
+mail:j@jj.comobjectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccountuserPassword: pshadowLastChange: 17128
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+loginShell: /bin/bash
+uidNumber: 500
+gidNumber: 500
+homeDirectory:jj
