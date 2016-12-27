@@ -44,7 +44,7 @@ router.get('/createUser',function(req,res){
 	txt = txt + "\nuserPassword: "+password+"\nshadowLastChange: 17128\nshadowMin: 0\nshadowMax: 99999\nshadowWarning: 7\nloginShell: /bin/bash\nuidNumber: "+uid+"\ngidNumber: "+gid+"\nhomeDirectory:"+directory;
 	console.log(txt);
 
-	fs.writeFile('data.ldif',txt,function(err){
+	fs.writeFile('ldifFiles/data.ldif',txt,function(err){
 		if(err)
 			throw err;
 		console.log("wrote to file")

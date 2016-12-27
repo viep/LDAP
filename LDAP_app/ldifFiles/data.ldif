@@ -9,7 +9,7 @@ objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: top
 objectClass: shadowAccount
-userPassword: j
+userPassword: 
 shadowLastChange: 17128
 shadowMin: 0
 shadowMax: 99999
@@ -17,4 +17,4 @@ shadowWarning: 7
 loginShell: /bin/bash
 uidNumber: j
 gidNumber: j
-homeDirectory:j
+homeDirectory:jkoooonew
