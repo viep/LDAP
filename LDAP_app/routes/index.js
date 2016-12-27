@@ -36,7 +36,7 @@ router.get('/createUser',function(req,res){
 	console.log(req.body);
 });
 
-router.get('/createUser',(req,res)=>{
+router.get('/createUser',function(req,res){
 	var username = req.query.username;
 	var name = req.query.name;
 	var email = req.query.email;
@@ -54,7 +54,7 @@ router.get('/createUser',(req,res)=>{
 	})
 	res.render('createUser',{title: 'Successfully created'});
 	console.log(req.query.name);
-})
+});
 
 
 
