@@ -1,18 +1,18 @@
-dn: uid=jj,ou=People,dc=summer,dc=sv.cmu.local 
-uid:jj
-cn:jj
-sn:jj
-mail:js@js.com
+dn: uid=,ou=People,dc=summer,dc=sv.cmu.local 
+uid:
+cn:
+sn:
+mail:
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: top
-objectClass: shadowAccountuserPassword: jjshadowLastChange: 17128
+objectClass: shadowAccountuserPassword: shadowLastChange: 17128
 shadowMin: 0
 shadowMax: 99999
 shadowWarning: 7
 loginShell: /bin/bash
-uidNumber: jj
-gidNumber: jj
-homeDirectory:jj
+uidNumber: 
+gidNumber: 
+homeDirectory:
