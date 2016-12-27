@@ -31,10 +31,6 @@ console.log(req.body);
 });
 
 
-router.get('/createUser',function(req,res){
-	res.render('createUser',{title: 'Successfully created'});
-	console.log(req.body);
-});
 
 router.get('/createUser',function(req,res){
 	var username = req.query.username;
@@ -46,7 +42,8 @@ router.get('/createUser',function(req,res){
 	var gid = req.query.gid;
 	var txt = "dn: uid="+username+",ou=People,dc=summer,dc=sv.cmu.local \nuid:"+username+"\ncn:"+username+"\nsn:"+username+"\nmail:"+email+"\nobjectClass: person\nobjectClass: organizationalPerson\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: top\nobjectClass: shadowAccount"
 	txt = txt + "\nuserPassword: "+password+"\nshadowLastChange: 17128\nshadowMin: 0\nshadowMax: 99999\nshadowWarning: 7\nloginShell: /bin/bash\nuidNumber: "+uid+"\ngidNumber: "+gid+"\nhomeDirectory:"+directory;
-	
+	console.log(txt);
+
 	fs.writeFile('data.ldif',txt,function(err){
 		if(err)
 			throw err;
