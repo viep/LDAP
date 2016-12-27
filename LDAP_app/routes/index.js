@@ -8,29 +8,35 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'LDAP APP' });
 });
 
-router.get('/about',(req,res)=>{
+router.get('/about',function(req,res){
 	res.render('about',{title:'About'});
-})
+});
 
-router.get('/contact',(req,res)=>{
+router.get('/contact',function(req,res){
 	res.render('contact',{title:'Contact Us'});
-})
-router.get('/adminUser',(req,res)=>{
+});
+router.get('/adminUser',function(req,res){
 console.log(req.body);
 res.render('adminUser',{title:'Admin Home Page'});
 });
 
-router.get('/regularUser',(req,res)=>{
+router.get('/regularUser',function(req,res){
 	res.render('regularUser',{title: 'User Home Page'})
-})
+});
 
-router.get('/newUserData',(req,res)=>{
+router.get('/newUserData',function(req,res){
 res.render('newUserData',{title: 'Create New User'
 });
 console.log(req.body);
-})
+});
 
-router.get('/createUser',(req,res)=>{
+
+router.get('/createUser',function(req,res){
+	res.render('createUser',{title: 'Successfully created'});
+	console.log(req.body);
+});
+
+router.get('/createUser',function(req,res){
 	var username = req.query.username;
 	var name = req.query.name;
 	var email = req.query.email;
@@ -48,7 +54,8 @@ router.get('/createUser',(req,res)=>{
 	})
 	res.render('createUser',{title: 'Successfully created'});
 	console.log(req.query.name);
-})
+});
+
 
 
 module.exports = router;
