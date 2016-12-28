@@ -30,29 +30,23 @@ router.get('/', function(req, res, next) {
    failureRedirect : '/', // redirect back to the signup page if there is an error
    failureFlash : true // allow flash messages
   }));
+
 router.get('/about',function(req,res){
 	res.render('about',{title:'About'});
-})
-
-
+});
 
 router.get('/contact',function(req,res){
 	res.render('contact',{title:'Contact Us'});
 })
 router.get('/profile',function(req,res){
-console.log(req.body);
-console.log(req.user);
-res.render('profile',{title:'Admin Home Page',user : req.user});
+	res.render('profile',{title:'home page',user:req.user})
 });
-router.get('/regularUser',function(req,res){
-	res.render('regularUser',{title: 'User Home Page'})
-})
 
 router.get('/newUserData',function(req,res){
 res.render('newUserData',{title: 'Create New User'
 });
 console.log(req.body);
-})
+});
 
 router.post('/newUserData',function(req,res){
 	var username = req.body.username;
@@ -78,9 +72,5 @@ router.get('/createUser',function(req,res){
 	res.render('createUser',{title: 'Successfully created'});
 	console.log(req.query.name);
 });
-router.get('/about',(req,res)=>{
-	res.render('about',{title:'About'});
-});
-
 
 module.exports = router;
