@@ -1,20 +1,20 @@
-dn: uid=j,ou=People,dc=summer,dc=sv.cmu.local 
-uid:j
-cn:j
-sn:j
-mail:j@jj.com
+dn: uid=abasak,ou=People,dc=summer,dc=sv.cmu.local 
+uid: abasak
+cn: abasak
+sn: abasak
+mail: abasak@andrew.cmu.edu
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: top
 objectClass: shadowAccount
-userPassword: 
+userPassword: abasak
 shadowLastChange: 17128
 shadowMin: 0
 shadowMax: 99999
 shadowWarning: 7
 loginShell: /bin/bash
-uidNumber: j
-gidNumber: j
-homeDirectory:jkoooonew
+uidNumber: 1004
+gidNumber: 503
+homeDirectory: /home/abasak
