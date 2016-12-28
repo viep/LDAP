@@ -15,9 +15,10 @@ html
                 | About
             li
               a(href='/contact') Contact us
+      img#tartan(src='images/CMUTartans.png', align='right')   
       br
       .jumbotron
-        p Welcome Admin
+        p Welcome Admin #{user.name}
           form(action='newUserData')
             | Click to add a new user:
             br

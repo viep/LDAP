@@ -14,7 +14,7 @@ mongoose.connect(configDB.url);
 require('../config/passport')(passport); // pass passport for configuration
 
 // required for passport
-router.use(session({ secret: 'iamsoconfusedwiththisshit' })); // session secret
+router.use(session({ secret: 'ijustdontgetthisshitandiamnotkidding' })); // session secret
 router.use(passport.initialize());
 router.use(passport.session()); // persistent login sessions
 router.use(flash()); // use connect-flash for flash messages stored in session
@@ -26,52 +26,61 @@ router.get('/', function(req, res, next) {
 
     // process the login form
  router.post('/', passport.authenticate('local-login', {
-   successRedirect : '/adminUser', // redirect to the secure profile section
+   successRedirect : '/profile', // redirect to the secure profile section
    failureRedirect : '/', // redirect back to the signup page if there is an error
    failureFlash : true // allow flash messages
   }));
-router.get('/about',(req,res)=>{
+router.get('/about',function(req,res){
 	res.render('about',{title:'About'});
 })
 
 
 
-router.get('/contact',(req,res)=>{
+router.get('/contact',function(req,res){
 	res.render('contact',{title:'Contact Us'});
 })
-router.get('/adminUser',(req,res)=>{
+router.get('/profile',function(req,res){
 console.log(req.body);
-res.render('adminUser',{title:'Admin Home Page'});
+console.log(req.user);
+res.render('profile',{title:'Admin Home Page',user : req.user});
 });
-router.get('/regularUser',(req,res)=>{
+router.get('/regularUser',function(req,res){
 	res.render('regularUser',{title: 'User Home Page'})
 })
 
-router.get('/newUserData',(req,res)=>{
+router.get('/newUserData',function(req,res){
 res.render('newUserData',{title: 'Create New User'
 });
 console.log(req.body);
 })
 
-router.get('/createUser',(req,res)=>{
-	var username = req.query.username;
-	var name = req.query.name;
-	var email = req.query.email;
-	var password = req.query.password;
-	var directory = req.query.homedirectory;
-	var uid = req.query.uid;
-	var gid = req.query.gid;
+router.post('/newUserData',function(req,res){
+	var username = req.body.username;
+	var name = req.body.name;
+	var email = req.body.email;
+	var password = req.body.password;
+	var directory = req.body.homedirectory;
+	var uid = req.body.uid;
+	var gid = req.body.gid;
 	var txt = "dn: uid="+username+",ou=People,dc=summer,dc=sv.cmu.local \nuid:"+username+"\ncn:"+username+"\nsn:"+username+"\nmail:"+email+"\nobjectClass: person\nobjectClass: organizationalPerson\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: top\nobjectClass: shadowAccount"
-	txt = txt + "userPassword: "+password+"shadowLastChange: 17128\nshadowMin: 0\nshadowMax: 99999\nshadowWarning: 7\nloginShell: /bin/bash\nuidNumber: "+uid+"\ngidNumber: "+gid+"\nhomeDirectory:"+directory;
-	
-	fs.writeFile('data.ldif',txt,function(err){
+	txt = txt + "\nuserPassword: "+password+"\nshadowLastChange: 17128\nshadowMin: 0\nshadowMax: 99999\nshadowWarning: 7\nloginShell: /bin/bash\nuidNumber: "+uid+"\ngidNumber: "+gid+"\nhomeDirectory:"+directory;
+	console.log(txt);
+	fs.writeFile('ldifFiles/data.ldif',txt,function(err){
 		if(err)
 			throw err;
 		console.log("wrote to file")
+
 	})
+	res.redirect('/createUser');
+
+});
+router.get('/createUser',function(req,res){
 	res.render('createUser',{title: 'Successfully created'});
 	console.log(req.query.name);
-})
+});
+router.get('/about',(req,res)=>{
+	res.render('about',{title:'About'});
+});
 
 
 module.exports = router;
