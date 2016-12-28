@@ -48,6 +48,7 @@ res.render('newUserData',{title: 'Create New User'
 console.log(req.body);
 });
 
+<<<<<<< HEAD
 router.post('/newUserData',function(req,res){
 	var username = req.body.username;
 	var name = req.body.name;
@@ -58,6 +59,20 @@ router.post('/newUserData',function(req,res){
 	var gid = req.body.gid;
 	var txt = "dn: uid="+username+",ou=People,dc=summer,dc=sv.cmu.local \nuid:"+username+"\ncn:"+username+"\nsn:"+username+"\nmail:"+email+"\nobjectClass: person\nobjectClass: organizationalPerson\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: top\nobjectClass: shadowAccount"
 	txt = txt + "\nuserPassword: "+password+"\nshadowLastChange: 17128\nshadowMin: 0\nshadowMax: 99999\nshadowWarning: 7\nloginShell: /bin/bash\nuidNumber: "+uid+"\ngidNumber: "+gid+"\nhomeDirectory:"+directory;
+=======
+
+
+router.get('/createUser',function(req,res){
+	var username = req.query.username;
+	var name = req.query.name;
+	var email = req.query.email;
+	var password = req.query.password;
+	var directory = req.query.homedirectory;
+	var uid = req.query.uid;
+	var gid = req.query.gid;
+	var txt = "dn: uid="+username+",ou=People,dc=summer,dc=sv.cmu.local \nuid: "+username+"\ncn: "+username+"\nsn: "+username+"\nmail: "+email+"\nobjectClass: person\nobjectClass: organizationalPerson\nobjectClass: inetOrgPerson\nobjectClass: posixAccount\nobjectClass: top\nobjectClass: shadowAccount"
+	txt = txt + "\nuserPassword: "+password+"\nshadowLastChange: 17128\nshadowMin: 0\nshadowMax: 99999\nshadowWarning: 7\nloginShell: /bin/bash\nuidNumber: "+uid+"\ngidNumber: "+gid+"\nhomeDirectory: "+directory;
+>>>>>>> 7bda325c98b84d197ea6886f461c0713adf046af
 	console.log(txt);
 	fs.writeFile('ldifFiles/data.ldif',txt,function(err){
 		if(err)
@@ -65,12 +80,29 @@ router.post('/newUserData',function(req,res){
 		console.log("wrote to file")
 
 	})
+<<<<<<< HEAD
 	res.redirect('/createUser');
 
 });
 router.get('/createUser',function(req,res){
 	res.render('createUser',{title: 'Successfully created'});
 	console.log(req.query.name);
+=======
+	console.log("before spawning");
+	var spawn = require("child_process").spawn;
+    console.log("after spawning");
+	var process = spawn('python',["/home/epi/Documents/fall16/RA/cluster/LDAP/LDAP_app/pyscripts/test.py","ep","vinod"]);
+    console.log("now may be fuckin");
+	var output = "";
+    process.stdout.on('data', function(data) {
+        console.log("stdout somehwere");
+		output = data;
+        console.log(data)});
+	process.on('close',function(code){
+        res.render('createUser', {title: output});
+        console.log(req.query.name);
+    });
+>>>>>>> 7bda325c98b84d197ea6886f461c0713adf046af
 });
 
 module.exports = router;

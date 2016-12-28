@@ -1,20 +1,38 @@
+<<<<<<< HEAD
 dn: uid=u,ou=People,dc=summer,dc=sv.cmu.local 
 uid:u
 cn:u
 sn:u
 mail:j@jj.com
+=======
+dn: uid=abasak,ou=People,dc=summer,dc=sv.cmu.local 
+uid: abasak
+cn: abasak
+sn: abasak
+mail: abasak@andrew.cmu.edu
+>>>>>>> 7bda325c98b84d197ea6886f461c0713adf046af
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: top
 objectClass: shadowAccount
+<<<<<<< HEAD
 userPassword: u
+=======
+userPassword: abasak
+>>>>>>> 7bda325c98b84d197ea6886f461c0713adf046af
 shadowLastChange: 17128
 shadowMin: 0
 shadowMax: 99999
 shadowWarning: 7
 loginShell: /bin/bash
+<<<<<<< HEAD
 uidNumber: u
 gidNumber: u
 homeDirectory:u
+=======
+uidNumber: 1004
+gidNumber: 503
+homeDirectory: /home/abasak
+>>>>>>> 7bda325c98b84d197ea6886f461c0713adf046af
