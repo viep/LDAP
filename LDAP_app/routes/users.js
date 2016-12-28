@@ -34,6 +34,10 @@ userSchema.methods.validPassword = function(password) {
     return password==this.password;
 };
 	
+	/**
+	Uncomment following lines to enter data to db
+	*/
+/*
 var User = mongoose.model('User', userSchema);
 var pw = bcrypt.hashSync('jazzj', bcrypt.genSaltSync(8), null);
 
@@ -53,7 +57,7 @@ jazz.save(function(err,data){
 	else
 		console.log('Saved: ',data);
 })
-
+*/
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
 

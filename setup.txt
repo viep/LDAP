@@ -1,0 +1,25 @@
+To start mongodb: 
+
+$mongod --dbpath data/db
+ 
+To enter data to db directly:
+
+$mongo 
+
+> use ldapDB
+
+> db.users.insert({'username':'foo',
+		'password':'foo',
+		'email': 'email'
+		'description':'desc'
+		'name':'name'
+		'uid':'uid'
+		'gid':'gid'
+		'home directory':'home dir'})
+
+
+To list all users
+
+> db.users.find().pretty()
+
+
